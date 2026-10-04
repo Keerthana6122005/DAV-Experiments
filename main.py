@@ -4,7 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyPmr8F03uLqWE6cq7C13H+D",
+      "authorship_tag": "ABX9TyPtljEdGv+FxhCVhuiLlrgB",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -28,137 +28,439 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 1,
+      "execution_count": null,
       "metadata": {
-        "id": "7d3F4rh25Ylw"
+        "id": "rOzi1UII6l_f"
       },
       "outputs": [],
       "source": [
+        "\n",
+        "import pandas as pd\n",
         "import numpy as np\n",
-        "import pandas as pd\n"
+        "df = pd.read_csv(\"tested.csv\")\n",
+        "print(\"Dataset loaded successfully!\")"
       ]
     },
     {
       "cell_type": "code",
       "source": [
-        "a = np.array([10, 20, 30, 40, 50])\n"
+        "df.head()\n"
       ],
       "metadata": {
-        "id": "oqdbmXQJ5foL"
+        "id": "HIHKWNeH6n6X"
       },
-      "execution_count": 2,
+      "execution_count": null,
       "outputs": []
     },
     {
       "cell_type": "code",
       "source": [
-        "print(\"Array:\", a)\n",
-        "print(\"Mean:\", a.mean())\n",
-        "print(\"Reshaped 2D:\\n\", a.reshape(5, 1))\n",
-        "print(\"Sliced:\", a[1:4])"
+        "df.tail()"
       ],
       "metadata": {
-        "colab": {
-          "base_uri": "https://localhost:8080/"
-        },
-        "id": "WOSC8MHV5jEy",
-        "outputId": "128e9677-0ee7-473a-9e91-361003cfe18c"
+        "id": "rGh0pTpG6wM0"
       },
-      "execution_count": 3,
-      "outputs": [
-        {
-          "output_type": "stream",
-          "name": "stdout",
-          "text": [
-            "Array: [10 20 30 40 50]\n",
-            "Mean: 30.0\n",
-            "Reshaped 2D:\n",
-            " [[10]\n",
-            " [20]\n",
-            " [30]\n",
-            " [40]\n",
-            " [50]]\n",
-            "Sliced: [20 30 40]\n"
-          ]
-        }
-      ]
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "data = {\n",
-        "    \"Name\": [\"Asha\", \"Rani\", \"Meera\", \"Karan\"],\n",
-        "    \"Marks\": [88, 72, 91, 65],\n",
-        "    \"Branch\": [\"CSE\", \"ECE\", \"CSE\", \"ISE\"]\n",
-        "}\n"
-      ],
-      "metadata": {
-        "id": "ep5ODxiq5m2V"
-      },
-      "execution_count": 4,
+      "execution_count": null,
       "outputs": []
     },
     {
       "cell_type": "code",
       "source": [
-        "df = pd.DataFrame(data)"
+        "df.shape"
       ],
       "metadata": {
-        "id": "z_4Q09r_5qcj"
+        "id": "SF0ZINNj61Kp"
       },
-      "execution_count": 5,
+      "execution_count": null,
       "outputs": []
     },
     {
       "cell_type": "code",
       "source": [
-        "print(df)\n",
-        "\n",
-        "print(\"\\nFirst 2 rows:\\n\", df.iloc[0:2])\n",
-        "\n",
-        "print(\"\\nMarks column:\\n\", df[\"Marks\"])\n",
-        "\n",
-        "print(\"\\nRows where marks > 70:\\n\", df[df[\"Marks\"] > 70])"
+        "df.columns"
       ],
       "metadata": {
-        "colab": {
-          "base_uri": "https://localhost:8080/"
-        },
-        "id": "7nL-l9Ni51g8",
-        "outputId": "44083bda-d984-499a-f3b5-dc2906af125e"
+        "id": "soJUjLdr65al"
       },
-      "execution_count": 6,
-      "outputs": [
-        {
-          "output_type": "stream",
-          "name": "stdout",
-          "text": [
-            "    Name  Marks Branch\n",
-            "0   Asha     88    CSE\n",
-            "1   Rani     72    ECE\n",
-            "2  Meera     91    CSE\n",
-            "3  Karan     65    ISE\n",
-            "\n",
-            "First 2 rows:\n",
-            "    Name  Marks Branch\n",
-            "0  Asha     88    CSE\n",
-            "1  Rani     72    ECE\n",
-            "\n",
-            "Marks column:\n",
-            " 0    88\n",
-            "1    72\n",
-            "2    91\n",
-            "3    65\n",
-            "Name: Marks, dtype: int64\n",
-            "\n",
-            "Rows where marks > 70:\n",
-            "     Name  Marks Branch\n",
-            "0   Asha     88    CSE\n",
-            "1   Rani     72    ECE\n",
-            "2  Meera     91    CSE\n"
-          ]
-        }
-      ]
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df.dtypes\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "pT5eNZdI686t"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df.info()"
+      ],
+      "metadata": {
+        "id": "rZuZzafJ7ApT"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df.describe()\n"
+      ],
+      "metadata": {
+        "id": "9U2534Ul7FUD"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df[\"Age\"].mean()"
+      ],
+      "metadata": {
+        "id": "o4FFNwYW7Ism"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df[\"Age\"].median()\n"
+      ],
+      "metadata": {
+        "id": "fr-pyurp7M5h"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df[\"Age\"].mode()\n"
+      ],
+      "metadata": {
+        "id": "kxXnLp-i7QnW"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df[\"Age\"].var()\n"
+      ],
+      "metadata": {
+        "id": "dxaFOLz_7USI"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df[\"Age\"].std()"
+      ],
+      "metadata": {
+        "id": "ncGPJVXC7dCQ"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df[\"Age\"].min()\n"
+      ],
+      "metadata": {
+        "id": "Wh49l2WC70Ye"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df[\"Age\"].max()\n"
+      ],
+      "metadata": {
+        "id": "GOujoU7N74ZC"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df[\"Age\"].count()\n"
+      ],
+      "metadata": {
+        "id": "5PvRtvUf8B5U"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df[\"PassengerId\"].unique()\n"
+      ],
+      "metadata": {
+        "id": "selKYOt38IZm"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df[\"Fare\"].nunique()"
+      ],
+      "metadata": {
+        "id": "boUtYCTx8KRK"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df[\"Ticket\"].value_counts()\n"
+      ],
+      "metadata": {
+        "id": "ahqVfL8K8P5Y"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df.isnull()"
+      ],
+      "metadata": {
+        "id": "IwoLm-TZ8USd"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df.isnull().sum()"
+      ],
+      "metadata": {
+        "id": "o1hiQ4T-8Yfz"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df.isnull().mean()*100\n"
+      ],
+      "metadata": {
+        "id": "Ee0CR54_8bv7"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df_no_missing = df.dropna()\n",
+        "\n",
+        "df_no_missing.head()\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "dxID3DRJ8lOi"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df[\"Fare\"] = df[\"Fare\"].fillna(\"Unknown\")"
+      ],
+      "metadata": {
+        "id": "2Szfr9gg8p-V"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df.duplicated()"
+      ],
+      "metadata": {
+        "id": "bzUacDXD8zFn"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df=df.drop_duplicates()"
+      ],
+      "metadata": {
+        "id": "tveY8Tvq82uV"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df[\"Name\"]"
+      ],
+      "metadata": {
+        "id": "GQFHvlsR83_a"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df[[\"Name\",\"PassengerId\",\"Age\"]]"
+      ],
+      "metadata": {
+        "id": "Ggjh9vo28-Xa"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df.iloc[0:5]"
+      ],
+      "metadata": {
+        "id": "-1A0Bia98_5T"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df[df[\"Age\"]>30]\n"
+      ],
+      "metadata": {
+        "id": "HMj2IvGv9ESI"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df.sort_values(\"Age\")"
+      ],
+      "metadata": {
+        "id": "F5rBE2_k9H-l"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df.sort_values(\"Age\",ascending=False)"
+      ],
+      "metadata": {
+        "id": "6AXNhg4W9L2l"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df.rename(columns={\"Age\": \"Age\"}, inplace=True)\n",
+        "\n",
+        "df.head()"
+      ],
+      "metadata": {
+        "id": "7Q5J_OIO9Sgo"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df.groupby(\"Name\").size()"
+      ],
+      "metadata": {
+        "id": "IY2k9rts9Tgy"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df.groupby(\"Name\")[\"Age\"].mean()\n"
+      ],
+      "metadata": {
+        "id": "C6SGOucZ9XG0"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df1 = df.iloc[:3000]\n",
+        "df2 = df.iloc[3000:]\n",
+        "\n",
+        "combined_df = pd.concat([df1, df2])\n",
+        "\n",
+        "combined_df.shape\n"
+      ],
+      "metadata": {
+        "id": "JDYKDXwB9aj8"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df1 = df[[\"PassengerId\", \"Name\"]]\n",
+        "df2 = df[[\"PassengerId\", \"Age\"]]\n",
+        "\n",
+        "merged_df = pd.merge(df1, df2, on=\"PassengerId\")\n",
+        "\n",
+        "merged_df.head()"
+      ],
+      "metadata": {
+        "id": "18IUjVHF9fgt"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "wxi3y9149jGP"
+      },
+      "execution_count": null,
+      "outputs": []
     }
   ]
 }
